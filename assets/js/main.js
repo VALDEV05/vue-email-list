@@ -1,9 +1,16 @@
 const app = new Vue({
     el: '#app',
     data: {
-        name: 'Valerio',
+        email: ''
     },
     mounted() {
+        //creo la chiamata tramite l'utilizzo di axios
+        axios
+            .get('https://flynn.boolean.careers/exercises/api/random/mail')
+            .then(response => {
+                this.email = response.data.response
+                console.log(this.email)
+            })
 
 
     }
