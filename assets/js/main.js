@@ -9,13 +9,14 @@ const app = new Vue({
                 .get(url)
                 .then(response => {
                     this.email = response.data.response
-                    console.log(this.email)
+                    document.querySelector('.email_list').innerHTML += `<li>${this.email}</li>`
                 })
         }
     },
     mounted() {
-
-        this.generateEmail('https://flynn.boolean.careers/exercises/api/random/mail')
+        for (let index = 1; index <= 10; index++) {
+            this.generateEmail('https://flynn.boolean.careers/exercises/api/random/mail')
+        }
 
         //creo la chiamata tramite l'utilizzo di axios
         /* axios
