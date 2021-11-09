@@ -3,14 +3,27 @@ const app = new Vue({
     data: {
         email: ''
     },
+    methods: {
+        generateEmail(url) {
+            axios
+                .get(url)
+                .then(response => {
+                    this.email = response.data.response
+                    console.log(this.email)
+                })
+        }
+    },
     mounted() {
+
+        this.generateEmail('https://flynn.boolean.careers/exercises/api/random/mail')
+
         //creo la chiamata tramite l'utilizzo di axios
-        axios
+        /* axios
             .get('https://flynn.boolean.careers/exercises/api/random/mail')
             .then(response => {
                 this.email = response.data.response
                 console.log(this.email)
-            })
+            }) */
 
 
     }
